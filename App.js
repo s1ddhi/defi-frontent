@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { StyleSheet, View, Text, Button, Dimensions } from "react-native";
+import { StyleSheet, View, Text, Button, Dimensions, ActivityIndicator } from "react-native";
 import { LineChart } from "react-native-chart-kit";
 import axios from "axios";
 
@@ -106,11 +106,14 @@ export default function App() {
     ],
   };
 
-  const test = 100.08848437984398894389438989438943894
-
-  console.log(test, Number(test.toPrecision(2)), typeof(test))
-
-  return (
+  if (isLoading) {
+    return(
+      <View style={[spinnerStyles.container, spinnerStyles.horizontal]}>
+        <ActivityIndicator size="large" color="#0000ff" />
+      </View>
+    );
+  } else {
+    return (
     <>
     <View style={styles.container}>
     <View style={styles.row}>
@@ -192,8 +195,22 @@ export default function App() {
        </View>
      </View>
     </>
-  );
+    );
+  }
 }
+
+const spinnerStyles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: "center"
+  },
+  horizontal: {
+    flexDirection: "row",
+    justifyContent: "space-around",
+    padding: 10
+  }
+});
+
 
 const styles = StyleSheet.create({
   background: {
