@@ -154,7 +154,7 @@ export default function App() {
       yAxisInterval={1} // optional, defaults to 1
       chartConfig={{
         backgroundColor: "#ffffff",
-        backgroundGradientFrom: "ffffff",
+        backgroundGradientFrom: "#ffffff",
         backgroundGradientTo: "#ffffff",
         backgroundGradientFromOpacity: 0,
         backgroundGradientToOpacity: 0,
@@ -167,7 +167,7 @@ export default function App() {
         propsForDots: {
           r: "4",
           strokeWidth: "1",
-          stroke: "##07c192"
+          stroke: "#07c192"
         }
       }}
       style={{
